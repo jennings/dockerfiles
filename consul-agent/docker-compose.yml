@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+
+  consul:
+    image: consul
+    restart: unless-stopped
+    ports:
+      - "8500:8500"
+      - "8301:8301"
+      - "8301:8301/udp"
+      - "8302:8302"
+      - "8302:8302/udp"
+    volumes:
+      - "./config:/consul/config"
+    command: agent
